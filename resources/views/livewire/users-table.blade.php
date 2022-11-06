@@ -1,7 +1,7 @@
 <div>
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
-    @extends(layouts.app)
-    @section('body')
+    
+    @section('content')
         <div class="field">
                 <p class="control has-icons-left has-icons-right">
                     <input class="input" type="name" placeholder="Rechercher un demandeur">
@@ -28,7 +28,6 @@
      <tbody>
          @foreach ($users as $user)
                     
-                @endforeach
             <tr>
               <td>
                 {{ $user->id }}
@@ -36,13 +35,11 @@
               <td>{{ $user->name }}</td>
               <td>{{ $user->firstname }}</td>
               <td>{{ $user->email}}</td>
-              <td>{{ $user->role}}</td>
+              <td>{{ $user->role->name}}</td>
              {{-- <td>{{ $user->type_demande }}</td>--}}
                {{--<td>{{ $user-> }}</td>--}}
               {{-- <td>{{ $user-> }}></td>--}}
-            </tr>
-            <tr>
-                <button class="button">Editer</button>
+              <td><button class="button">Editer</button></td>
             </tr>
          @endforeach
             <tbody>
