@@ -22,6 +22,7 @@ class Demande extends Model
         'refugie',
         'actiris',
         'vdab',
+        'statut',
     ];
 
    /**

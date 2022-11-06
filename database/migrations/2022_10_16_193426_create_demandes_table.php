@@ -22,6 +22,7 @@ return new class extends Migration
             $table->tinyInteger('refugie');
             $table->tinyInteger('actiris');
             $table->tinyInteger('vdab');
+            $table->string('statut',20);
             $table->timestamps();
         });
     }
