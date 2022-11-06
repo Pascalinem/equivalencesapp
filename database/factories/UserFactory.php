@@ -18,7 +18,17 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            //'numero_national'=>$this->fake()->rrn(),
             'name' => fake()->name(),
+            'firstname'=>fake()->firstName($gender='X'|'M'|'F'),
+            'street'=>fake()->streetAddress() ,
+            'postal_code'=>fake()->postcode,
+            'city'=>fake()->city,
+            'sexe'=>'M',
+            'pays_naissance'=>fake()->country,
+            'nationality'=>fake()->country,
+            'telephone'=>fake()->phoneNumber,
+            'role_id'=>fake()->numberBetween(1,5),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
