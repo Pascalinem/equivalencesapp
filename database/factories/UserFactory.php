@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
@@ -17,14 +16,15 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        
         return [
-            //'numero_national'=>$this->fake()->rrn(),
+            'numero_national'=>fake()->rrn(),
             'name' => fake()->name(),
             'firstname'=>fake()->firstName($gender='X'|'M'|'F'),
             'street'=>fake()->streetAddress() ,
             'postal_code'=>fake()->postcode,
             'city'=>fake()->city,
-            'sexe'=>'M',
+            'sexe'=>fake()->randomElement($array=array('X','M','F')),
             'pays_naissance'=>fake()->country,
             'nationality'=>fake()->country,
             'telephone'=>fake()->phoneNumber,

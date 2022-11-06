@@ -2,7 +2,7 @@
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
     
     @section('content')
-        <div class="field">
+        <div class="table-auto">
                 <p class="control has-icons-left has-icons-right">
                     <input class="input" type="name" placeholder="Rechercher un demandeur">
                     <span class="icon is-small is-left">
