@@ -1,8 +1,9 @@
-
+<div class="text-2xl mb-10 py-6 bg-gray-300"  style="background-color:#FCB434  ;">
 <ul> 
    
-    <li><a href="#">Messages</a></li>
+    <li class="inline mx-4"><a href="#">Accueil</a></li>
     
-    <li><a href='#'>test</a></li>
+    <li class="inline"><a href=''>test</a></li>
 
 </ul>
+</div>

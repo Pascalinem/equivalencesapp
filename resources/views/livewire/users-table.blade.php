@@ -2,23 +2,24 @@
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
     
     @section('content')
-        <div class="table-auto">
-                <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="name" placeholder="Rechercher un demandeur">
+        <div class="field my-4 ">
+                <p class="my-4 ml-10 control has-icons-left has-icons-right">
+                    <input class="input" type="name" placeholder="Rechercher un demandeur" wire:model="search">
                     <span class="icon is-small is-left">
                          <ion-icon name="search"></ion-icon>
                     </span>
                 </p>
+                
         </div>
-
-        <table>
-            <thead>
+       
+        <table class="ml-10 mt-10 ">
+            <thead class="my-2">
                 <tr>
                     {{-- <th>Numéro dossier</th> --}}
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Adresse mail</th>
-                    <th>Role</th>
+                    <th  class="ml-4"  >Nom</th>
+                    <th  class="ml-4">Prénom</th>
+                    <th class="ml-4" >Adresse mail</th>
+                    <th  class="ml-4"  >Role</th>
                    {{-- <th>Type demande</th>--}}
                     {{--<th>statut</th>--}}
                    {{-- <th>Dossier introduit le </th>--}}
@@ -29,20 +30,21 @@
          @foreach ($users as $user)
                     
             <tr>
-              <td>
+             {{--  <td>
                 {{ $user->id }}
-              </td>
-              <td>{{ $user->name }}</td>
-              <td>{{ $user->firstname }}</td>
-              <td>{{ $user->email}}</td>
-              <td>{{ $user->role->name}}</td>
+              </td> --}}
+              <td  class="ml-4">{{ $user->name }}</td>
+              <td  class="ml-4">{{ $user->firstname }}</td>
+              <td class="ml-4">{{ $user->email}}</td>
+              <td  class="ml-4">{{ $user->role->name}}</td>
              {{-- <td>{{ $user->type_demande }}</td>--}}
                {{--<td>{{ $user-> }}</td>--}}
               {{-- <td>{{ $user-> }}></td>--}}
-              <td><button class="button">Editer</button></td>
+              <td  ><button  style="background-color:#1c3c82 ;" class="button rounded text-white ml-4 p-2 ">Editer</button></td>
             </tr>
          @endforeach
             <tbody>
            
         </table>
+       
 </div>

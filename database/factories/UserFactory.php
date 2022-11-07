@@ -19,7 +19,7 @@ class UserFactory extends Factory
         
         return [
             'numero_national'=>fake()->rrn(),
-            'name' => fake()->name(),
+            'name' => fake()->lastName(),
             'firstname'=>fake()->firstName($gender='X'|'M'|'F'),
             'street'=>fake()->streetAddress() ,
             'postal_code'=>fake()->postcode,

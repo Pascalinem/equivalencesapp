@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="text-3xl text-purple-800 mb-4 text-center">Connexion</h1>
-<form method="POST" action="{{ route('login') }}" class="w-full max-w-sm mx-auto rounded-lg border shadow-md p-5 mb-5">
+<h1 style ="color:#E42C34  " class="text-3xl bolder mb-4 text-center">Connexion</h1>
+<form method="POST" action="{{ route('login') }}" style ="background-color:#1c3c82 " class="w-full max-w-sm mx-auto rounded-lg border shadow-md p-5 mb-5">
     @csrf
     
     <div class="mb-4">
@@ -23,6 +23,6 @@
         @enderror
     </div>
 
-    <button type="submit" class="bg-green-500 text-white hover:bg-green-700 transition ease-in-out duration-500 rounded-md shadow-md w-full block px-4 py-2 mt-3">Se connecter</button>
+    <button type="submit" style= "background-color:#FCB434" class=" text-black bold hover:bg-green-700 transition ease-in-out duration-500 rounded-md shadow-md w-full block px-4 py-2 mt-3">Se connecter</button>
 </form>
 @endsection
