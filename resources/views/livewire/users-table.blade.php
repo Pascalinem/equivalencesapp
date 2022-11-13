@@ -16,6 +16,7 @@
             <thead class="my-2">
                 <tr>
                     {{-- <th>Numéro dossier</th> --}}
+                    <th  class="ml-4"  >Numéro national</th>
                     <th  class="ml-4"  >Nom</th>
                     <th  class="ml-4">Prénom</th>
                     <th class="ml-4" >Adresse mail</th>
@@ -33,6 +34,7 @@
              {{--  <td>
                 {{ $user->id }}
               </td> --}}
+              <td  class="ml-4">{{ $user->numero_national }}</td>
               <td  class="ml-4">{{ $user->name }}</td>
               <td  class="ml-4">{{ $user->firstname }}</td>
               <td class="ml-4">{{ $user->email}}</td>

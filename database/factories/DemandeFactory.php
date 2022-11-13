@@ -26,6 +26,8 @@ class DemandeFactory extends Factory
         'actiris',
         'vdab',
         'statut',
+         'commission_id',
+        'user_id',
         **/
         ];
     }

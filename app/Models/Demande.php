@@ -23,6 +23,8 @@ class Demande extends Model
         'actiris',
         'vdab',
         'statut',
+        'commission_id',
+        'user_id',
     ];
 
    /**
@@ -41,5 +43,9 @@ class Demande extends Model
      * @var bool
      */
     public $timestamps = true;
+
+    public function commission(){
+        return $this->belongsTo(Commission::class);
+    }
 
 }

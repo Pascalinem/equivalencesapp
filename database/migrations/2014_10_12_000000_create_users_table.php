@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('numero_national',20);
             $table->string('name');
+            $table->string('name_diploma')->nullable();
             $table->string('firstname');
             $table->string('street');
             $table->string('postal_code');
