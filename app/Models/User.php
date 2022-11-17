@@ -18,17 +18,27 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'numero_national',
+        'national_number',
         'name',
         'name_diploma',
         'firstname',
+        //données résidence
         'street',
         'postal_code',
         'city',
+        'country',
+        //données courrier
+        'street1',
+        'postal_code1',
+        'city1',
+        'country1',
+
         'email',
         'telephone',
-        'sexe',
-        'pays_naissance',
+        'gender',
+        'date_of_birth',
+        'place_of_birth',
+        'country_of_birth',
         'nationality',
         'password',
         'role_id',
@@ -73,4 +83,5 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class);
     }
+
 }

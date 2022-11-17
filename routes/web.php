@@ -25,7 +25,8 @@ Route::get('/home', function () {
 
 Route::get('/index', function () {
     return view('demande.index');
-})->name('index');
+})->middleware('web')->name('index');
+
 //Route::get('demandes/{id}',[DemandeController::class,'show'])->name('demande');
 //Route::get('/contactez-nous',[DemandeController::class,'contact'])->name('contact');
 
