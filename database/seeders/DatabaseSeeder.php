@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             RolesTableSeeder::class,
             MembreCommissionSeeder::class,
             CommissionSeeder::class,
+            CountrySeeder::class,
         ]);
 
     \App\Models\User::factory(30)->create();

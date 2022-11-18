@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Demande;
 
 use App\Models\User;
+use App\Models\Country;
 use Livewire\Component;
 
 class InformationsPersonnellesNouvelleDemandeForm extends Component
@@ -30,9 +31,26 @@ class InformationsPersonnellesNouvelleDemandeForm extends Component
      public $country_of_birth;
      public $nationality;
 
+     public $refugee;
+     public $actiris;
+     public $vdab;
+
      //à gérer
      public $role_id= 4;
      public $password='test';
+
+     public $countriesAll;
+
+
+     public function mount()
+ 
+     {
+         $this->countriesAll = Country::all();
+ 
+     }
+ 
+ 
+ 
      
 
      public function submit(){
@@ -66,7 +84,7 @@ class InformationsPersonnellesNouvelleDemandeForm extends Component
    
        User::create($validatedData);
    
-        return redirect()->to('/');
+        return redirect()->to('/demande.create-etudes-primaire-secondaire');
      }
     
     public function render()

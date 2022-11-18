@@ -27,6 +27,10 @@ Route::get('/index', function () {
     return view('demande.index');
 })->middleware('web')->name('index');
 
+Route::get('/create', function () {
+    return view('demande.create');
+})->middleware('web')->name('nouveau-informations-personnelles');
+
 //Route::get('demandes/{id}',[DemandeController::class,'show'])->name('demande');
 //Route::get('/contactez-nous',[DemandeController::class,'contact'])->name('contact');
 
