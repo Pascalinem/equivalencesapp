@@ -3,6 +3,6 @@
 @section('content')
 
 <div>
-    <livewire:demande.informations-personnelles-nouvelle-demande-form/>
+    <livewire:demande.nouvelle-demande/>
 </div>
 @endsection

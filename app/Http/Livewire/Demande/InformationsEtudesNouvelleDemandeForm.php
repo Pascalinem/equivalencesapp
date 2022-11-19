@@ -8,25 +8,21 @@ use Livewire\Component;
 
 class InformationsEtudesNouvelleDemandeForm extends Component
 {
-    public $country_primary_education;
-    public $primary_school_years;
-    public $start_year_primary_school;
-    public $end_year_primary_school;
-    public $primary_school_name;
-    public $primary_school_degree;
+    public $demande;
+    public $user_id;
+    public $etude;
+    public $type;
+    public $country;
+    public $school_years;
+    public $start_year;
+    public $end_year;
+    public $school_name;
+    public $degree;
+    public $step;
+    public $etudes;
+    public $showForm = false;
 
-    public $secondaryTrue;
-
-    public $country_secondary_education;
-    public $secondary_school_years;
-    public $start_year_secondary_school;
-    public $end_year_secondary_school;
-    public $secondary_school_name;
-    public $SecondarySchoolLocality;
-    public $secondary_school_degree;
-    public $secondaryOtherInformation;
    /**public $
-    public $
     public $
     public $
     public $
@@ -54,25 +50,46 @@ class InformationsEtudesNouvelleDemandeForm extends Component
 
     {
         $this->countriesAll = Country::all();
-
+        
     }
 
+    public function showForm()
+    {
+        $this->showForm = !$this->showForm;
+    }
 
+    public function nextStep(){
+        
+        $this->emit('infoEtudespsOk');
+    }
+
+    public function rules() 
+    {
+        return [
+            'country' => 'required',
+            'school_years'=>'nullable',
+            'start_year'=>'required',
+            'end_year'=>'',
+            'school_name'=>'',
+            'user_id' => ''
+        ];
+    }
 
     public function submit(){
+       
+        $validatedData = $this->validate($this->rules());
 
-        $validatedData = $this->validate([
-        
-            
-        ]);
    
-       Etude::create($validatedData);
-   
-        return redirect()->to('/');
+       
+        $this->etude = Etude::create($validatedData); 
+       $this->etude->type = $this->etudes;
+       $this->etude->save();
+       $this->emit('infoEtudespsOk',$this->user_id);
      }
 
     public function render()
     {
+
         return view('livewire.demande.informations-etudes-nouvelle-demande-form');
     }
 }

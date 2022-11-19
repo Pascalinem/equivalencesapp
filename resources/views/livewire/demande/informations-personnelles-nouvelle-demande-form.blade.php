@@ -48,7 +48,7 @@
         </div>
         <div class="form-group">
             <label  for="numero_national">Numéro national</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="numero_national" placeholder="Entrer votre numéro national belge si vous en avez un" 
+            <input class="shadow appearance-none border bg-violet-100 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="numero_national" placeholder="Entrer votre numéro national belge si vous en avez un" 
             wire:model="national_number">
             @error('national_number') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
@@ -155,17 +155,17 @@
             </div>
             <div class="form-group">
                 <label for="refugee">Réfugié</label>
-                <input type="checkbox" class="shadow appearance-none border rounded w-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="refugee" wire:model="refugee"/>
+                <input type="checkbox" class="shadow appearance-none border-lime-500 rounded w-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="refugee" wire:model="refugee"/>
                 @error('refugee') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
                 <label for="actiris">Inscription active chez Actiris</label>
-                <input type="checkbox" class="shadow appearance-none border rounded w-4  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="actiris" wire:model="actiris"/>
+                <input type="checkbox" class="shadow appearance-none border-lime-500 rounded w-4  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="actiris" wire:model="actiris"/>
                 @error('actiris') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
                 <label for="vdab">Inscription chez VDAB</label>
-                <input type="checkbox" class="shadow appearance-none border rounded w-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="vdab" wire:model="vdab"/>
+                <input type="checkbox" class="shadow appearance-none border-lime-500 rounded w-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="vdab" wire:model="vdab"/>
                 @error('vdab') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             <!-- à gérer-->

@@ -31,6 +31,15 @@ Route::get('/create', function () {
     return view('demande.create');
 })->middleware('web')->name('nouveau-informations-personnelles');
 
+Route::get('/create-step-2', function () {
+    return view('demande.create-etudes-primaire-secondaire');
+})->middleware('web')->name('create-etudes-primaire-secondaire');
+
+Route::get('/test/{user_id}', function ($user_id) {
+    return view('demande.liste-etudes', ['user_id' => $user_id]);
+});
+
+
 //Route::get('demandes/{id}',[DemandeController::class,'show'])->name('demande');
 //Route::get('/contactez-nous',[DemandeController::class,'contact'])->name('contact');
 

@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('etudes', function (Blueprint $table) {
             $table->id();
-           // $table->string('type');
-            $table->string('primary_school_name');
-            $table->string('country_primary_education');
-            $table->string('primary_school_years');
-            $table->string('start_year_primary_school');
-            $table->string('end_year_primary_school');
+            $table->foreignId('demande_id')->nullable();
+            $table->foreignId('user_id')->constrained();
+            $table->string('type')->nullable();
+            $table->string('school_name');
+            $table->string('country');
+            $table->string('school_years');
+            $table->string('start_year');
+            $table->string('end_year');
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@ class Demande extends Model
         'statut',
         'commission_id',
         'user_id',
+        'etude_id',
     ];
 
    /**

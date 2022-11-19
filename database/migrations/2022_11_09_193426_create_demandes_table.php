@@ -15,16 +15,17 @@ return new class extends Migration
     {
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
-            $table->string('type_demande',20);
-            $table->date('date_demande');
-            $table->string('statut_demande',20);
-            $table->double('montant_frais');
-            $table->tinyInteger('refugie');
-            $table->tinyInteger('actiris');
-            $table->tinyInteger('vdab');
-            $table->string('statut',20);
-            $table->foreignId('commission_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->string('type_demande',20)->nullable();
+            $table->date('date_demande')->nullable();
+            $table->string('statut_demande',20)->nullable();
+            $table->double('montant_frais')->nullable();
+            $table->tinyInteger('refugie')->nullable();
+            $table->tinyInteger('actiris')->nullable();
+            $table->tinyInteger('vdab')->nullable();
+            $table->string('statut',20)->nullable();
+            $table->foreignId('commission_id')->nullable();
+            $table->foreignId('user_id')->nullable();
+            $table->foreignId('etude_id')->nullable();
             $table->timestamps();
         });
     }

@@ -10,13 +10,24 @@ class Etude extends Model
     use HasFactory;
 
     protected $fillable =
-    ['primary_school_name',
-    'country_primary_education',
-    'primary_school_years',
-    'start_year_primary_school',
-    'end_year_primary_school',
+    ['type',
+    'demande_id',
+    'user_id',
+    'school_name',
+    'country',
+    'school_years',
+    'start_year',
+    'end_year',
 
 ];
 
     protected $table='etudes';
+
+    public function demande(){
+        return $this->belongsTo(Demande::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

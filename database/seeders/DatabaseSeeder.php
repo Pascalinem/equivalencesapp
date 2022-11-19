@@ -12,6 +12,8 @@ use Database\Seeders\CommissionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
+    
+    
     /**
      * Seed the application's database.
      *
@@ -21,12 +23,16 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RolesTableSeeder::class,
+        ]);
+        \App\Models\User::factory(30)->create();
+        $this->call([
             MembreCommissionSeeder::class,
             CommissionSeeder::class,
             CountrySeeder::class,
+            EtudeSeeder::class,
         ]);
 
-    \App\Models\User::factory(30)->create();
+   
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

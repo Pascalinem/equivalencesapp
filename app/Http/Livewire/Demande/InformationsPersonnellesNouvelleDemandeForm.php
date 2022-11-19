@@ -8,38 +8,39 @@ use Livewire\Component;
 
 class InformationsPersonnellesNouvelleDemandeForm extends Component
 {
+    public $user;
     public $national_number;
-     public $name;
-     public $name_diploma;
-     public $firstname;
-    //données résidence
-     public $street;
-     public $postal_code;
-     public $city;
-     public $country;
-    //données courrier
-     public $street1;
-     public $postal_code1;
-     public $city1;
-     public $country1;
+    public $name;
+    public $name_diploma;
+    public $firstname;
+//données résidence
+    public $street;
+    public $postal_code;
+    public $city;
+    public $country;
+//données courrier
+    public $street1;
+    public $postal_code1;
+    public $city1;
+    public $country1;
 
-     public $email;
-     public $telephone;
-     public $gender;
-     public $date_of_birth;
-     public $place_of_birth;
-     public $country_of_birth;
-     public $nationality;
+    public $email;
+    public $telephone;
+    public $gender;
+    public $date_of_birth;
+    public $place_of_birth;
+    public $country_of_birth;
+    public $nationality;
 
-     public $refugee;
-     public $actiris;
-     public $vdab;
+    public $refugee;
+    public $actiris;
+    public $vdab;
 
-     //à gérer
-     public $role_id= 4;
-     public $password='test';
+    //à gérer
+    public $role_id= 4;
+    public $password='test';
 
-     public $countriesAll;
+    public $countriesAll;
 
 
      public function mount()
@@ -82,9 +83,9 @@ class InformationsPersonnellesNouvelleDemandeForm extends Component
             
         ]);
    
-       User::create($validatedData);
-   
-        return redirect()->to('/demande.create-etudes-primaire-secondaire');
+       $this->user = User::create($validatedData);
+       
+       $this->emit('infoPersoOk', $this->user->id);
      }
     
     public function render()
