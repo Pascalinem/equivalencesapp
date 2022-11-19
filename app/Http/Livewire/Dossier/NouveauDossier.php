@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Demande;
+namespace App\Http\Livewire\Dossier;
 
 use App\Models\Demande;
 use Livewire\Component;
 
-class NouvelleDemande extends Component
+class NouveauDossier extends Component
 {
 public $userId;    
 public $step = 1;
@@ -35,12 +35,10 @@ public $etudes = [
         ;
     }
 
-    /*public function mount(){
-        $this->demande = new Demande ;
-    }*/
+  
 
     public function render()
     {
-        return view('livewire.demande.nouvelle-demande');
+        return view('livewire.dossier.nouveau-dossier');
     }
 }

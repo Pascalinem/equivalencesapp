@@ -23,9 +23,9 @@
       </nav>
     
     @if($step === 1)
-    @livewire('demande.informations-personnelles-nouvelle-demande-form',['step' => $step, 'userId' => $userId], key($step) )
+    @livewire('dossier.informations-personnelles',['step' => $step, 'userId' => $userId], key($step) )
     @elseif($step>1 && $step<5 )
-    @livewire('demande.informations-etudes-nouvelle-demande-form',['step' => $step, 'etudes' => $etudes[$step], 'user_id' => $userId], key($step) )
+    @livewire('dossier.informations-etudes',['step' => $step, 'etudes' => $etudes[$step], 'user_id' => $userId], key($step) )
     @else
 
     @endif

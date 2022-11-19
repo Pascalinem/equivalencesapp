@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Demande;
+namespace App\Http\Livewire\Dossier;
 
 use App\Models\Country;
 use App\Models\Etude;
 use Livewire\Component;
 
-class InformationsEtudesNouvelleDemandeForm extends Component
+class InformationsEtudes extends Component
 {
     public $demande;
     public $user_id;
@@ -90,6 +90,6 @@ class InformationsEtudesNouvelleDemandeForm extends Component
     public function render()
     {
 
-        return view('livewire.demande.informations-etudes-nouvelle-demande-form');
+        return view('livewire.dossier.informations-etudes');
     }
 }

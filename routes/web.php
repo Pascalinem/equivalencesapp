@@ -24,23 +24,23 @@ Route::get('/home', function () {
 })->middleware('auth')->name('home');
 
 Route::get('/index', function () {
-    return view('demande.index');
+    return view('dossier.index');
 })->middleware('web')->name('index');
 
 Route::get('/create', function () {
-    return view('demande.create');
+    return view('dossier.create');
 })->middleware('web')->name('nouveau-informations-personnelles');
 
 Route::get('/create-step-2', function () {
-    return view('demande.create-etudes-primaire-secondaire');
+    return view('dossier.create-etudes-primaire-secondaire');
 })->middleware('web')->name('create-etudes-primaire-secondaire');
 
 Route::get('/test/{user_id}', function ($user_id) {
-    return view('demande.liste-etudes', ['user_id' => $user_id]);
+    return view('dossier.liste-etudes', ['user_id' => $user_id]);
 });
 
 
-//Route::get('demandes/{id}',[DemandeController::class,'show'])->name('demande');
+//Route::get('demandes/{id}',[DemandeController::class,'show'])->name('dossier');
 //Route::get('/contactez-nous',[DemandeController::class,'contact'])->name('contact');
 
-//Route::get('demandes/{id}',[DemandeController::class,'demande']);
+//Route::get('demandes/{id}',[DemandeController::class,'dossier']);

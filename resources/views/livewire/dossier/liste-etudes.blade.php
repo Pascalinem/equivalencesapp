@@ -17,7 +17,13 @@
         <td> {{  $item->school_years}}</td>
         <td> {{  $item->start_year}}</td>
         <td> {{  $item->end_year}}</td>
-        <td> <button  class="bg-white hover:bg-green-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="creerDemande({{ $item->id}})">Introduire une demande</button> </td>
+        <td> 
+            @if($item->demande_id)
+            Dossier en Cours
+            @else
+            <button  class="bg-white hover:bg-green-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="creerDemande({{ $item->id}})">Introduire une demande</button>
+            @endif 
+        </td>
     </tr>
 
     @endforeach
