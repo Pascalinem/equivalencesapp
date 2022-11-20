@@ -24,12 +24,12 @@
 @if($type_demande === 'NIV' OR $type_demande === 'ACA')
 <div class="form-group">
     <label for="copy_diploma">Télécharger une copie de votre diplôme  </label>
-    <input type="file" class="form-control-file border" name="copy_diploma">
+    <input type="file" class="form-control-file border" name="copy_diploma" wire:model="copy_diploma">
 </div>
     @if($type_demande === 'ACA')
     <div class="form-group">
         <label for="certified_copy_diploma">Télécharger une copie certifiée de votre diplôme </label>
-        <input type="file" class="form-control-file border" name="certified_copy_diploma">
+        <input type="file" class="form-control-file border" name="certified_copy_diploma" wire:model="certified_copy_diploma">
     </div>
     @endif
 

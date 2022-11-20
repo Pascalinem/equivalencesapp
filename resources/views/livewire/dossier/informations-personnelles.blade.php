@@ -2,35 +2,35 @@
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
     class=" mx-auto w-1/2 max-w-xs">
         <h3 class=" py-10 text-2xl bolder ">1-Informations personnelles </h3>
-    <form bg-gray-200 shadow-md rounded px-4 pt-6 pb-8 mb-4 wire:submit.prevent="submit">
+    <form bg-gray-200 shadow-md rounded px-4 pt-6 pb-8 mb-4 wire:submit.prevent="submit" enctype="multipart/form-data">
     @csrf
         <div class="form-group">
-            <label  for="nom">Nom </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="nom" placeholder="Entrer le nom" 
+            <label  for="nom">Nom(s) officiel(s) </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="nom" placeholder="Entrez vos noms officiels" 
                 wire:model="name">
             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
-            <label  for="prenom">Prénom </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="prenom" placeholder="Entrer vos prénoms" 
+            <label  for="prenom">Prénom(s) officiel(s) </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="prenom" placeholder="Entrez vos prénoms" 
                 wire:model="firstname">
             @error('firstname') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label  for="nomdipl">Nom sur le diplôme</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="nomdipl" placeholder="Entrer le nom sur votre diplôme, si vous avez changé de nom" 
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="nomdipl" placeholder="Entrez le nom sur votre diplôme, si vous avez changé de nom" 
             wire:model="name_diploma">
             @error('name_diploma') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label for="date-naissance">Date de naissance</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" class="form-control" id="date-naissance" placeholder="Entrer votre date de naissance" 
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" class="form-control" id="date-naissance" placeholder="Entrez votre date de naissance" 
             wire:model="date_of_birth">
             @error('date_of_birth') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label for="lieu-naissance">Lieu de naissance</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="lieu-naissance" placeholder="Entrer votre lieu de naissance " 
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="lieu-naissance" placeholder="Entrez votre lieu de naissance " 
             wire:model="place_of_birth">
             @error('place_of_birth') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
@@ -39,7 +39,7 @@
             <label for="pays-naissance">Pays de naissance</label>
             <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="pays-naissance" 
             wire:model="country_of_birth">
-                <option value="" selected>Choisir pays de naissance</option>    
+                <option value="" selected>Choisir le pays de naissance</option>    
                 @foreach($countriesAll as $country)    
                     <option value="{{ $country->name }}">{{ $country->name }}</option>    
                 @endforeach    
@@ -70,7 +70,7 @@
             </select>            
             @error('nationality') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
-        <div> <h4>Votre adresse de résidence actuelle</h4>
+        <div > <h4 class="my-4 py-4 bolder text-blue-500 text-xl " >Votre adresse de résidence actuelle</h4>
             <div class="form-group">
                 <label  for="adresse-rue">Rue et numéro</label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="adresse-rue" placeholder="Entrer la rue et le numéro" 
@@ -101,14 +101,16 @@
             </select>
                 @error('country') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
-            <!--<div class="form-check">
-                <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="" disabled>Votre adresse de résidence est-elle votre adresse courrier?
-                </label>
-            </div>-->
+            
         </div>
           <br>
-        <div><h4 class="my-10">Votre adresse courrier (<i>à compléter si différente adresse de résidence</i>)</h4>
+          <div class="form-check">
+                <label class="my-4 form-check-label">
+                <input type="checkbox" class="form-check-input" value="" wire:click="showAdresseCourrier()">Je souhaite recevoir le courrier à une adresse différente
+                </label>
+            </div>
+        @if($adresseCourrier)
+        <div><h4 class="my-10">Adresse courrier (<i>à ne compléter que si différente adresse de résidence !</i>)</h4>
             <div class="form-group">
             
                 <label  for="adresse-rue-courrier">Rue et numéro</label>
@@ -141,18 +143,14 @@
                 @error('country1') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
         </div>
+        @endif
             <div class="form-group">
                 <label for="numero-telephone">Numéro de téléphone</label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="numero-telephone" placeholder="Entrer votre numéro de téléphone" 
                 wire:model="telephone">
                 @error('telephone') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
-                <label  for="email">Adresse mail</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="email" placeholder="Entrez votre adresse  mail" 
-                wire:model="email">
-                @error('email') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
+            
             <div class="form-group">
                 <label for="refugee">Réfugié</label>
                 <input type="checkbox" class="shadow appearance-none border-lime-500 rounded w-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="refugee" wire:model="refugee"/>
@@ -168,13 +166,8 @@
                 <input type="checkbox" class="shadow appearance-none border-lime-500 rounded w-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="vdab" wire:model="vdab"/>
                 @error('vdab') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
-            <!-- à gérer-->
-            <div class="form-group hidden">
-                
-                <input type="number" class="form-control" id="role_id" value="" wire:model="role_id">
-                <input id="password" type="password" name="password" value="" wire:model="password">
-            </div>
-            <!-- fin à gérer-->
+            
+            
             <div class="form-group">
                 <label for="id-card">Télécharger votre document d'identité ( recto -verso sur un seul document) - pdf </label>
                 <input type="file" class="form-control-file border" name="id-card">

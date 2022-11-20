@@ -5,13 +5,19 @@ namespace App\Http\Livewire\Demande;
 use App\Models\Etude;
 use App\Models\Demande;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use App\Models\DocumentDemande;
 
 class EditDemande extends Component
 {
+
+use WithFileUploads;
+
     public $showDemande=false;
     public $demande_id;
     public $user_id;
     public $type_demande;
+    public $documentDemande;
     //  'identity_card'=>'',
     public $copy_diploma;
     public $certified_copy_diploma;
@@ -23,6 +29,8 @@ class EditDemande extends Component
     // 'copy_work_attestations',
     // 'other_document'
     public $etude_id;
+
+   
 
 
     protected $listeners = ['nouvelleDemande'=>'showNouvelledemande'];
@@ -45,6 +53,7 @@ class EditDemande extends Component
             'demande_id'=>'',
             'user_id'=>'',
             'type_demande'=>'',
+            'documentDemande'=>'',
           //  'identity_card'=>'',
             'copy_diploma'=>'',
             'certified_copy_diploma'=>'',
@@ -69,7 +78,19 @@ public function showNouvelledemande($etude_id){
 }
 
 public function submit(){
-        $demande = new Demande;
+
+    $validatedData = $this->validate($this->rules());
+
+//dd($validatedData);
+
+
+
+
+      
+
+        $validatedData['copy_diploma'] = $this->copy_diploma->store($this->user_id, 'public');
+       // $demande = new Demande; 
+        $demande=Demande::create($validatedData);
         $demande->user_id = $this->user_id;
         $demande->date_demande = now();
         $demande->etude_id = $this->etude_id;

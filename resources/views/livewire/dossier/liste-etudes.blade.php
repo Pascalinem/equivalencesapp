@@ -7,7 +7,7 @@
         <th> School years</th>
         <th> Start Year</th>
         <th> End Year</th>
-        <th> Créer Demande</th>
+        <th> </th>
     </tr>
     @foreach ($this->etudes as $item)
     <tr>
@@ -19,7 +19,7 @@
         <td> {{  $item->end_year}}</td>
         <td> 
             @if($item->demande_id)
-            Dossier en Cours
+             Dossier en Cours
             @else
             <button  class="bg-white hover:bg-green-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="creerDemande({{ $item->id}})">Introduire une demande</button>
             @endif 

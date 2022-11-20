@@ -16,7 +16,8 @@ public $etudes = [
 ];
 
 
-    protected $listeners = ['infoPersoOk'=> 'goStepTwo','infoEtudespsOk'=> 'goNextStep' ];
+    protected $listeners = ['infoPersoOk'=> 'goStepTwo','infoEtudespsOk'=> 'goNextStep', ];
+
 
     public function goNextStep($userId){
        

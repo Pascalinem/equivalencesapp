@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -29,7 +30,7 @@ Route::get('/index', function () {
 
 Route::get('/create', function () {
     return view('dossier.create');
-})->middleware('web')->name('nouveau-informations-personnelles');
+})->middleware('auth','web')->name('nouveau-informations-personnelles');
 
 Route::get('/create-step-2', function () {
     return view('dossier.create-etudes-primaire-secondaire');
