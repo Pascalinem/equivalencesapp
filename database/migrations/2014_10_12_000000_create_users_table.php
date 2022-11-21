@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('city1')->nullable();
             $table->string('country1')->nullable();
             $table->string('email')->unique();
-            $table->string('telephone', 20);
+            $table->string('telephone', 20)->nullable();
             $table->string('gender')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('place_of_birth')->nullable();

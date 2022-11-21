@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\Fortify\CreateNewUser;
+use App\Http\Responses\LogoutResponse;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use App\Actions\Fortify\ResetUserPassword;
@@ -25,8 +26,14 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-     //
+        $this->registerResponseBindings();
      
+    }
+
+    protected function registerResponseBindings()
+    {
+        $this->app->singleton(LogoutResponseContract::class, LogoutResponse::class);
+        
     }
 
     /**
@@ -36,6 +43,8 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+       
+        
        
 
         Fortify::createUsersUsing(CreateNewUser::class);

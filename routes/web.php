@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DemandeController;
+use App\Http\Responses\LogoutResponse;
 use App\Http\Livewire\UsersTable;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -28,6 +28,9 @@ Route::get('/index', function () {
     return view('dossier.index');
 })->middleware('web')->name('index');
 
+Route::get('/liste_demandes', [DemandeController::class, 'index'])->middleware('web','auth')->name('liste_demandes');
+
+
 Route::get('/create', function () {
     return view('dossier.create');
 })->middleware('auth','web')->name('nouveau-informations-personnelles');
@@ -39,6 +42,11 @@ Route::get('/create-step-2', function () {
 Route::get('/test/{user_id}', function ($user_id) {
     return view('dossier.liste-etudes', ['user_id' => $user_id]);
 });
+
+Route::get('/liste_utilisateurs', function () {
+    return view('user.list');
+})->middleware('web','auth')->name('liste_utilisateurs');
+
 
 
 //Route::get('demandes/{id}',[DemandeController::class,'show'])->name('dossier');

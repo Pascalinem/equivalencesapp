@@ -18,9 +18,9 @@ class RolesTableSeeder extends Seeder
         //
         //DB::table('roles')->truncate();
         DB::insert('insert into roles (id, name) values (?, ?)', [1, 'admin']);
-        DB::insert('insert into roles (id, name) values (?, ?)', [2, 'gestionnaire']);
-        DB::insert('insert into roles (id, name) values (?, ?)', [3, 'chef']);
-        DB::insert('insert into roles (id, name) values (?, ?)', [4, 'demandeur']);
-        DB::insert('insert into roles (id, name) values (?, ?)', [5, 'membre_commission']);
+        DB::insert('insert into roles (id, name) values (?, ?)', [3, 'gestionnaire']);
+        DB::insert('insert into roles (id, name) values (?, ?)', [2, 'chef']);
+        DB::insert('insert into roles (id, name) values (?, ?)', [5, 'demandeur']);
+        DB::insert('insert into roles (id, name) values (?, ?)', [4, 'membre_commission']);
     }
 }
