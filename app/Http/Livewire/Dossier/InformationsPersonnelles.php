@@ -32,7 +32,7 @@ class InformationsPersonnelles extends Component
     public $place_of_birth;
     public $country_of_birth;
     public $nationality;
-
+    public $role_id;
     public $refugee;
     public $actiris;
     public $vdab;
@@ -46,7 +46,7 @@ class InformationsPersonnelles extends Component
         $this->countriesAll = Country::all();
         
         //adapter multi role
-        $this->user = Auth::user();
+        $this->user = User::where('id','=',Auth::user()->id)->first();
         $this->national_number = $this->user->national_number;
         $this->name = $this->user->name;
         $this->name_diploma = $this->user->name_diploma;
@@ -114,9 +114,9 @@ class InformationsPersonnelles extends Component
 
             
         ]);
+        
         $this->user->role_id = 4;
-       $this->user->save($validatedData);
-       
+        $this->user->save($validatedData);
        $this->emit('infoPersoOk', $this->user->id);
      }
     

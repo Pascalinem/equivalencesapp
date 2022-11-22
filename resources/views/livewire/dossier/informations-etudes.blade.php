@@ -1,6 +1,6 @@
 
 @if ($showForm)
-<div class=" mx-auto w-1/2 max-w-xs">
+<div class=" w-full">
      {{-- Success is as dangerous as failure. --}}
         <h3 class="mt-6 py-10 text-xl">{{ $this->step }}-Informations sur vos études {{ $this->etudes }}</h3>
     <form bg-gray-200 shadow-md rounded px-4 pt-6 pb-8 mb-4 wire:submit.prevent="submit">

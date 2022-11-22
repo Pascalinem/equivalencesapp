@@ -28,8 +28,6 @@ Route::get('/index', function () {
     return view('dossier.index');
 })->middleware('web')->name('index');
 
-Route::get('/liste_demandes', [DemandeController::class, 'index'])->middleware('web','auth')->name('liste_demandes');
-
 
 Route::get('/create', function () {
     return view('dossier.create');
@@ -46,6 +44,14 @@ Route::get('/test/{user_id}', function ($user_id) {
 Route::get('/liste_utilisateurs', function () {
     return view('user.list');
 })->middleware('web','auth')->name('liste_utilisateurs');
+
+Route::get('/demandes/{demande_id}', [DemandeController::class, 'show'])->middleware('web','auth');
+
+
+Route::get('/demandes', function () {
+    return view('demande.list');
+})->middleware('web','auth')->name('liste_demandes');
+
 
 
 

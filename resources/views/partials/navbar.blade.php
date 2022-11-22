@@ -9,8 +9,8 @@
         @else
             <li class="inline mx-4"><a href="#">Accueil</a></li>
             @if(Auth::user()->role_id<4)
-              <li class="inline mx-4"><a href="#">Dossiers</a></li>
-       
+              <li class="inline mx-4"><a href="{{ route('liste_utilisateurs') }}">Utilisateurs</a></li>
+              <li class="inline mx-4"><a href="{{ route('liste_demandes') }}">Demandes</a></li>
             @endif
             <li class="inline mx-4"><a href="#">Notifications</a></li>
             

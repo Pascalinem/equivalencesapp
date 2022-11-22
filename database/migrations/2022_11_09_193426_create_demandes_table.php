@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('statut',20)->nullable();
             $table->foreignId('commission_id')->nullable();
             $table->foreignId('user_id')->nullable();
+            $table->string('gestionnaire_id')->nullable();
             $table->foreignId('etude_id')->nullable();
             $table->timestamps();
         });

@@ -18,6 +18,7 @@ class Etude extends Model
     'school_years',
     'start_year',
     'end_year',
+    'gestionnaire'
 
 ];
 

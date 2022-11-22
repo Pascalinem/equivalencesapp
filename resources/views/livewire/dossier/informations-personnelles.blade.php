@@ -1,6 +1,6 @@
 <div
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
-    class=" mx-auto w-1/2 max-w-xs">
+    class=" mx-20 px-20 ">
         <h3 class=" py-10 text-2xl bolder ">1-Informations personnelles </h3>
     <form bg-gray-200 shadow-md rounded px-4 pt-6 pb-8 mb-4 wire:submit.prevent="submit" enctype="multipart/form-data">
     @csrf

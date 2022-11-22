@@ -22,8 +22,8 @@ class InformationsEtudes extends Component
     public $etudes;
     public $showForm = false;
 
-   /**public $
-    public $
+   
+   /* public $
     public $
     public $
     public $
@@ -59,6 +59,9 @@ class InformationsEtudes extends Component
     }
 
     public function nextStep(){
+    
+
+
         
         $this->emit('infoEtudespsOk');
     }
@@ -71,7 +74,8 @@ class InformationsEtudes extends Component
             'start_year'=>'required',
             'end_year'=>'',
             'school_name'=>'',
-            'user_id' => ''
+            'user_id' => '',
+            
         ];
     }
 

@@ -13,7 +13,8 @@ class EditDemande extends Component
 
 use WithFileUploads;
 
-    public $showDemande=false;
+    public $showDemande;
+    public $demande;
     public $demande_id;
     public $user_id;
     public $type_demande;
@@ -29,6 +30,7 @@ use WithFileUploads;
     // 'copy_work_attestations',
     // 'other_document'
     public $etude_id;
+    public $gestionnaire_id;
 
    
 
@@ -44,6 +46,20 @@ use WithFileUploads;
         'ACA'=>'Equivalence academique',
 
     ];
+
+    public function mount()
+ 
+     {
+        if(isset($this->demande_id)){
+
+            $this->demande = Demande::where('id', '=', $this->demande_id)->first();
+            $this->type_demande = $this->demande->type_demande ;
+            $this->showDemande = true;
+        }
+        //adapter multi role
+       
+
+     }
 
 
     public function rules() 
@@ -64,7 +80,8 @@ use WithFileUploads;
            // 'summary_dissertation',
            // 'copy_work_attestations',
            // 'other_document'
-           'etude_id'=>''
+           'etude_id'=>'',
+           'gestionnaire_id'=>'',
 
         ];
     }
@@ -90,6 +107,7 @@ public function submit(){
 
         $validatedData['copy_diploma'] = $this->copy_diploma->store($this->user_id, 'public');
        // $demande = new Demande; 
+       if(isset($this->demande_id))
         $demande=Demande::create($validatedData);
         $demande->user_id = $this->user_id;
         $demande->date_demande = now();
