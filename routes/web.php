@@ -35,7 +35,7 @@ Route::get('/create', function () {
 
 Route::get('/create-step-2', function () {
     return view('dossier.create-etudes-primaire-secondaire');
-})->middleware('web')->name('create-etudes-primaire-secondaire');
+})->middleware('web','auth')->name('create-etudes-primaire-secondaire');
 
 Route::get('/test/{user_id}', function ($user_id) {
     return view('dossier.liste-etudes', ['user_id' => $user_id]);

@@ -173,6 +173,6 @@
                 <input type="file" class="form-control-file border" name="id-card">
             </div>
         
-        <button type="submit" class="bg-white hover:bg-green-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow">Sauvegarder vos informations personnelles</button>
+        <button type="submit" class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mb-6 mt-8 py-4 px-4 border border-gray-400 rounded shadow">Sauvegarder vos informations personnelles</button>
     </form>
 </div>

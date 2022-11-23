@@ -46,6 +46,10 @@ class Demande extends Model
      */
     public $timestamps = true;
 
+    public function etude(){
+        return $this->belongsTo(Etude::class);
+    }
+
     public function commission(){
         return $this->belongsTo(Commission::class);
     }
@@ -53,5 +57,10 @@ class Demande extends Model
     public function user(){
         return $this->belongsTo(User::class,'user_id','id');
     }
+
+    public function gestionnaire(){
+        return $this->belongsTo(User::class,'gestionnaire_id','id');
+    }
+
 
 }

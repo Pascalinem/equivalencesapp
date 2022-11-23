@@ -16,7 +16,7 @@ public $etudes = [
 ];
 
 
-    protected $listeners = ['infoPersoOk'=> 'goStepTwo','infoEtudespsOk'=> 'goNextStep', ];
+    protected $listeners = ['infoPersoOk'=> 'goStepTwo','infoEtudespsOk'=> 'goNextStep','endEtude' => 'endEtude' ];
 
 
     public function goNextStep($userId){
@@ -24,6 +24,8 @@ public $etudes = [
         
         $this->step++;
     }
+
+    
 
     public function goStepTwo($userId){
         $this->userId = $userId;
@@ -36,7 +38,14 @@ public $etudes = [
         ;
     }
 
-  
+    public function endEtude($userId){
+        $this->userId = $userId;
+
+        $this->step = 5
+        ;
+        
+    }
+
 
     public function render()
     {

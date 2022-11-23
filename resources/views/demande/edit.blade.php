@@ -2,27 +2,31 @@
 
 @section('content')
 
-<div class="w-full">
+<div class="w-full my-4">
     <!--div info utilisateur-->  
+    <h2 class=" text-2xl my-10"> Infos utilisateur </h2>
     <div class="grid grid-cols-3 gap-4">
-        <div>Noms et prénoms:{{ auth()->user()->name }} {{ auth()->user()->firstname }}</div>
-        <div>Nom sur le diplôme: {{ auth()->user()->name_diploma }}</div>
-        <div>Adresse mail et téléphone: {{ auth()->user()->email }} - {{ auth()->user()->telephone }}</div>
-        <div> Adresse: {{ auth()->user()->street }}, {{ auth()->user()->postal_code }} {{ auth()->user()->city }} {{ auth()->user()->country }}</div>
-        <div> Adresse courrier, si différente adresse résidence:  {{ auth()->user()->stree1 }}, {{ auth()->user()->postal_code1 }} {{ auth()->user()->city1 }} {{ auth()->user()->country1 }}</div>
+     
+        <div><span class="font-bold" >Noms et prénoms:</span> {{ auth()->user()->name }} {{ auth()->user()->firstname }}</div>
+        <div><span class="font-bold" >Nom sur le diplôme: </span>{{ auth()->user()->name_diploma }}</div>
+        <div><span class="font-bold" >Adresse mail et téléphone: </span>{{ auth()->user()->email }}   {{ auth()->user()->telephone }}</div>
+        <div><span class="font-bold" > Adresse: </span>{{ auth()->user()->street }}  {{ auth()->user()->postal_code }} {{ auth()->user()->city }} {{ auth()->user()->country }}</div>
+        <div><span class="font-bold" > Adresse courrier, si différente adresse résidence: </span> {{ auth()->user()->stree1 }} {{ auth()->user()->postal_code1 }} {{ auth()->user()->city1 }} {{ auth()->user()->country1 }}</div>
     </div>
-    <!--DIV infos etudes-->     
-    <div class="grid grid-cols-3 gap-4">    
+
+    
+        <div class="grid grid-cols-3 gap-4">    
+            <h2 class=" text-2xl mt-10"> Etude </h2>
+            <div><span class="font-bold" >Type des études: </span>{{ $etude->type }}</div>
+            <div><span class="font-bold" >Durée officielle des études: </span>{{ $etude->school_years }}</div>
+            <div><span class="font-bold" >Nom de l'établissement d'enseignement: </span>{{ $etude->school_name }}</div> 
+            <div><span class="font-bold" >Pays des études: </span>{{ $etude->country }}</div> 
+            <div><span class="font-bold" >Année de début des études: </span>{{ $etude->start_year }}</div> 
+            <div><span class="font-bold" >Année de fin des études: </span>{{ $etude->end_year}}</div>  
         
-        <div>Type des études: {{ $etude->type }}</div>
-        <div>Durée officielle des études: {{ $etude->school_years }}</div>
-        <div>Nom de l'établissement d'enseignement: {{ $etude->school_name }}</div> 
-        <div>Pays des études: {{ $etude->country }}</div> 
-        <div>Année de début des études: {{ $etude->start_year }}</div> 
-        <div>Année de fin des études: {{ $etude->end_year}}</div>  
-       
-    </div>       
-    <div>@livewire('demande.edit-demande-back-office',['demande_id' => $demande->id])</div>
+        </div>       
+        <div>@livewire('demande.edit-demande-back-office',['demande_id' => $demande->id])</div>
+    
 </div>
 @endsection
 

@@ -33,6 +33,15 @@ class EditDemandeBackOffice extends Component
         'ACA'=>'Equivalence academique',
 
     ];
+
+    public $statuts= [
+
+        '1'=>'En cours ',
+        '2'=>'En Attente d\'avis commission ',
+        '3'=>'Avis ',
+        '4'=>'Clôturé',
+
+    ];
     
     public function mount()
  
@@ -48,7 +57,7 @@ class EditDemandeBackOffice extends Component
             $this->copy_diploma = Storage::get($this->demande->user_id.'/copy_diploma.jpg');
              
         }
-
+        
         $this->gestionnaires = User::where('role_id','=',3)->get();
         $this->commissions = Commission::all();
      }

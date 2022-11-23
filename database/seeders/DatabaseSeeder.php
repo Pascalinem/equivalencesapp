@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             CommissionSeeder::class,
             CountrySeeder::class,
             EtudeSeeder::class,
+            SeanceCommissionSeeder::class,
         ]);
 
    

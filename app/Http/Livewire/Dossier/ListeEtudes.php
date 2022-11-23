@@ -20,7 +20,9 @@ class ListeEtudes extends Component
 
     public function mount()
     {
-        $this->etudes = Etude::where('etudes.user_id','=',$this->user_id)->get();
+        $this->etudes = Etude::where('etudes.user_id','=',$this->user_id)
+                        ->leftjoin('demandes','demandes.id','=','etudes.demande_id')
+                        ->leftjoin('users','users.id','=','demandes.gestionnaire_id')->get();
                     //dd($this->etudes);
         
         

@@ -45,7 +45,7 @@ class InformationsPersonnelles extends Component
      {
         $this->countriesAll = Country::all();
         
-        //adapter multi role
+        //à faire adapter multi role
         $this->user = User::where('id','=',Auth::user()->id)->first();
         $this->national_number = $this->user->national_number;
         $this->name = $this->user->name;
@@ -76,7 +76,6 @@ class InformationsPersonnelles extends Component
 
 
 
-         //dd($user);
  
      }
  
@@ -109,14 +108,15 @@ class InformationsPersonnelles extends Component
         'country_of_birth'=> 'nullable',
         'nationality'=> 'nullable',
         //à gérer
-        'role_id'=>'nullable',
+        
        //'password'=>'required',
 
             
         ]);
+        $this->user->update($validatedData);
         
-        $this->user->role_id = 4;
-        $this->user->save($validatedData);
+       
+        $this->user->save();
        $this->emit('infoPersoOk', $this->user->id);
      }
     

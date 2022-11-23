@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('seance_commission', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('commission_id')->constrained();
-            $table->foreignId('membre_commission_id')->constrained();
+            $table->foreignId('commission_id')->constrained()->onDelete('cascade');
+            $table->foreignId('membre_commission_id')->constrained()->onDelete('cascade');
             $table->date('date_seance')->nullable();
             $table->timestamps();
         });

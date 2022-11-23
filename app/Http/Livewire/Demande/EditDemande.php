@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Demande;
 
+use App\Models\User;
 use App\Models\Etude;
 use App\Models\Demande;
 use Livewire\Component;
@@ -58,6 +59,7 @@ use WithFileUploads;
         }
         //adapter multi role
        
+       
 
      }
 
@@ -107,7 +109,10 @@ public function submit(){
 
         $validatedData['copy_diploma'] = $this->copy_diploma->store($this->user_id, 'public');
        // $demande = new Demande; 
-       if(isset($this->demande_id))
+       if(isset($this->demande_id)){
+
+       }
+       else{
         $demande=Demande::create($validatedData);
         $demande->user_id = $this->user_id;
         $demande->date_demande = now();
@@ -118,6 +123,7 @@ public function submit(){
         $etude->save();
         $this->emit('refreshComponent');
         $this->showDemande = false;
+       }
 }
 
 

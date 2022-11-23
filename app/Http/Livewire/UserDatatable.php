@@ -9,6 +9,11 @@ use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
 class UserDatatable extends LivewireDatatable
 {
+
+    public $exportable = true;  
+
+
+    
     public function builder()
     {
         return User::query();

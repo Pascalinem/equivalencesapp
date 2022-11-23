@@ -66,6 +66,14 @@ class InformationsEtudes extends Component
         $this->emit('infoEtudespsOk');
     }
 
+    public function endEtude(){
+    
+
+
+        
+        $this->emit('endEtude',$this->user_id);
+    }
+
     public function rules() 
     {
         return [

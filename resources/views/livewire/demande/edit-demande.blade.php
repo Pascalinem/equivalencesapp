@@ -1,7 +1,7 @@
-<div
+<div id="edit-demande"
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
 
-    class=" mx-auto w-1/2 max-w-xs">
+    class=" w-full mx-10 px-10">
     @if ($this->showDemande)
         
 
@@ -10,7 +10,7 @@
  
 <form bg-gray-200 shadow-md rounded px-4 pt-6 pb-8 mb-4 wire:submit.prevent="submit">
 @csrf
-<div class="form-group">
+<div class="form-group my-4">
 <label for="type_demande">Type de demande d'équivalence</label>
 <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="type_demande" 
  wire:model="type_demande">

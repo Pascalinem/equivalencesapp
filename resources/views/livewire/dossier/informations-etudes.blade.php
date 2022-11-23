@@ -1,12 +1,12 @@
 
 @if ($showForm)
-<div class=" w-full">
+<div class=" w-full mb-6  mx-20 px-20 " >
      {{-- Success is as dangerous as failure. --}}
-        <h3 class="mt-6 py-10 text-xl">{{ $this->step }}-Informations sur vos études {{ $this->etudes }}</h3>
-    <form bg-gray-200 shadow-md rounded px-4 pt-6 pb-8 mb-4 wire:submit.prevent="submit">
+        <h3 class="mt-6 py-10 text-xl mx-4 font-bold ">{{ $this->step }}-Informations sur vos études {{ $this->etudes }}</h3>
+    <form bg-gray-200 shadow-md rounded  mx-10 pt-6 pb-8 mb-4 wire:submit.prevent="submit">
     @csrf
-    <h4 class="mt-6 text-xl">Etudes {{ $this->etudes }} </h4>
-        <div class="form-group">
+    <h4 class="px-10 mb-4 mt-6 text-xl">Etudes {{ $this->etudes }} </h4>
+        <div class="form-group ">
             <label  for="country">Pays de scolarité</label>
             <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="pays_primaire"  
                 wire:model="country">
@@ -17,26 +17,26 @@
             </select>
             @error('country') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
-     <div class="form-group">
+     <div class="form-group ">
             <label  for="nombre_annees">Durée officielle des études poursuivies: </label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" class="form-control" id="nombre_annees" placeholder="Entrez la durée officielle des études {{ $this->etudes }}" 
                 wire:model="school_years">
             @error('school_years') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
-        <div class="form-group">
-            <label  for="annee_debut">Année de début des études primaires</label>
+        <div class="form-group ">
+            <label  for="annee_debut">Année de début des études {{ $this->etudes }}</label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="annee_debut" placeholder="Entrer l'année de début de vos études {{ $this->etudes }}" 
             wire:model="start_year">
             @error('start_year') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
 
-        <div class="form-group">
-            <label for="end_year">Année de fin des études primaires</label>
+        <div class="form-group ">
+            <label for="end_year">Année de fin des études {{ $this->etudes }}</label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="end_year" placeholder="Entrer l'année de fin de vos études {{ $this->etudes }}" 
             wire:model="end_year">
             @error('end_year') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
-        <div class="form-group">
+        <div class="form-group ">
             <label  for="nom_ecole_primaire">Nom école</label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" class="form-control" id="nom_ecole_primaire" placeholder="Entrer le nom de l'école {{ $this->etudes }}" 
                 wire:model="school_name">
@@ -129,18 +129,14 @@
             @error('secondaryOtherInformation') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
         --}} 
-        <div class="form-group">
-                
-            <input type="text" class="form-control" id="user_id"  wire:model="user_id">
-            
-        </div>
+
     
-    <button type="submit" class="bg-white hover:bg-green-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow">Sauvegarder mes informations sur mes études {{ $this->etudes }}</button>
+    <button type="submit" class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow">Sauvegarder mes informations sur mes études {{ $this->etudes }}</button>
 </form>
 @else
-<div> Avez vous fait des études {{ $this->etudes }} ?
-    <button  class="bg-white hover:bg-green-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="showForm()">Oui</button>
-    <button  class="bg-white hover:bg-green-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="nextStep()">Non</button>
+<div class="mb-6"> Avez vous fait des études {{ $this->etudes }} ?
+    <button  class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="showForm()">Oui</button>
+    <button  class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="endEtude()">Non</button>
 </div>
 @endif
 

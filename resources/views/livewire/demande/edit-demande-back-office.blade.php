@@ -10,7 +10,7 @@
 @csrf
 <div class="form-group mt-10 py-4">
 
-    <label class="bold text-xl" for="type_demande">Type de demande</label>
+    <label class="font-bold text-xl" for="type_demande">Type de demande</label>
     <select class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="type_demande" 
     wire:model="type_demande">
         <option value="" selected>Type demande</option>    
@@ -23,7 +23,7 @@
 @if(Auth::user()->role_id == 2)
 <div class="form-group py-4">
             
-    <label  for="gestionnaire" class="bold text-xl">Gestionnaire</label>
+    <label  for="gestionnaire" class="font-bold text-xl">Gestionnaire</label>
     <select class="shadow appearance-none border rounded  py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="gestionnaire" 
     wire:model="gestionnaire_id">
         <option value="" selected >Choisir Gestionnaire</option>    
@@ -35,9 +35,21 @@
 </div>
 @endif
 @if(Auth::user()->role_id <4)
-<div class="form-group py-4">
+<div class="form-group py-4 inline-block">
             
-    <label  for="commission" class="bold text-xl">Commission</label>
+    <label  for="statut" class="font-bold text-xl">Statut</label>
+    <select class="shadow appearance-none border rounded  py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="statut" 
+    wire:model="statut_demande">
+        <option value="" selected >Statut</option>    
+        @foreach($statuts as $key=>$value)    
+            <option value="{{ $key }}">{{ $value}} </option>    
+        @endforeach    
+    </select>            
+    @error('statut_demande') <span class="text-danger">{{ $message }}</span> @enderror
+</div>
+<div class="form-group py-4 inline-block">
+            
+    <label  for="commission" class="font-boldtext-xl">Commission</label>
     <select class="shadow appearance-none border rounded  py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" class="form-control" id="commission" 
     wire:model="commission_id">
         <option value="" selected >Attribuer Commission</option>    

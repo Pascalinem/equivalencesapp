@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('type_demande',20)->nullable();
             $table->date('date_demande')->nullable();
-            $table->string('statut_demande',20)->nullable();
+            $table->string('statut_demande',20)->default('En cours');
             $table->double('montant_frais')->nullable();
             $table->tinyInteger('refugie')->nullable();
             $table->tinyInteger('actiris')->nullable();

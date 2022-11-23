@@ -3,87 +3,73 @@
 @section('content')
 
     <div class="flex flex-wrap mt-10">
-            <h2 class="block mb-6 text-xl ">
-                Bonjour  <span class=" bolder"> {{ auth()->user()->name }},</span>
+            <h2 class="block ml-4 mb-8 text-2xl text-gray-700">
+                <span class="  font-extrabold"> Bonjour   {{ auth()->user()->name }},</span>
             </h2>
 
             @if (Auth::user()->role_id==5)
+                
                 <div class="w-full mx-10 mb-4 bg-white">
-                    <h3 class="text-xl">
-                        Mon gestionnaire
-                        <hr>
-                    </h3>
-                    bg-blue-200
-                </div>
-                <div class="w-full mx-10 mb-4 bg-white">
-                    <h3 class="text-xl">
+                    <h3 class="font-bold bg-neutral-100 text-xl">
                         Mes informations personnelles
                         <hr>
                     </h3>
+                    <div class="w-full my-4 ">
+                            <!--div info utilisateur-->  
+                            <div class="grid grid-cols-3 gap-4">
+                                <div><span class="font-bold text-gray-600 ">Noms et prénoms:</span> {{ auth()->user()->name }} {{ auth()->user()->firstname }}</div>
+                                <div><span class="font-bold text-gray-600 ">Nom sur le diplôme: </span> {{ auth()->user()->name_diploma }}</div>
+                                <div><span class="font-bold text-gray-600 ">Adresse mail et téléphone: </span> {{ auth()->user()->email }}      {{ auth()->user()->telephone }}</div>
+                                <div><span class="font-bold text-gray-600 "> Adresse: </span> {{ auth()->user()->street }}   {{ auth()->user()->postal_code }} {{ auth()->user()->city }} {{ auth()->user()->country }}</div>
+                                <div><span class="font-bold text-gray-600 "> Adresse courrier, si différente adresse résidence: </span> {{ auth()->user()->stree1 }}   {{ auth()->user()->postal_code1 }} {{ auth()->user()->city1 }} {{ auth()->user()->country1 }}</div>
+                            </div>
+
+                           
+                      </div>
+                      <button class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mt-8 py-2 px-4 border border-gray-400 rounded shadow"><a href="/create">Modifier vos informations personnelles </a></button>
 
                 </div>
         
-            @endif
-            <div class="w-full mx-10 mb-4 bg-white">
-                
-                <h3 class="text-xl">
-                        Dossiers de demande
-                        <hr>
-                </h3>
-                <div>
+            
+                <div class="w-full mx-10 mb-4 bg-white">
                     
-                    @if (Auth::user()->role_id<=2)
-                      <div class="mt-6 py-4">
-                        <a href="{{ route('liste_demandes') }}" target="_blank">Liste demandes en cours</a>
-                      </div>
-                    @elseif (Auth::user()->role_id==3)
-                         <div class="mt-6 py-4">
-                           
-                         </div>
-                    
-                    @elseif (Auth::user()->role_id==4)
-                         <div class="mt-6 py-4">
-                           
-                         </div>
-                    @elseif (Auth::user()->role_id==5)
-                        <div class="mt-6 py-4">
-                            @livewire('dossier.liste-etudes',['user_id' => auth()->user()->id])
-                        </div>
-                    @endif
-                  
-                </div>
-
-            </div>
-
-            @if (Auth::user()->role_id<=2) 
-                <div class="w-full mx-10 mb-4">
-                    <h3 class="text-xl">
-                        Liste de gestionnaires
-                        <hr>
+                    <h3 class=" font-bold text-xl bg-neutral-100">
+                            Etudes
+                            <hr>
                     </h3>
-                    <div class="my-10">
-                       
+                    <div>                
+                
+                            <div class="mt-6 py-4">
+                                @livewire('dossier.liste-etudes',['user_id' => auth()->user()->id])
+                                <div>@livewire('demande.edit-demande',['user_id' => auth()->user()->id])</div>
+                            </div>
+                
+                    
                     </div>
 
                 </div>
+            @endif
+
+            @if (Auth::user()->role_id<=2) 
+
                 <div class="w-full mx-10 mb-4 ">
-                    <h3 class="text-xl">
+                    <h3 class="font-bold text-xl">
                         Liste des utilisateurs
                         <hr>
                     </h3>
                     <div class="my-10">
-                        <a href="{{ route('liste_utilisateurs')  }}" target="_blank"> Consulter la liste des utilisateurs </a>
+                        <a href="{{ route('liste_utilisateurs')  }}" target="_blank" class="text-blue-600"> Consulter la liste des utilisateurs </a>
                     </div>
 
                 </div>
             @endif
-            <div class="w-full mx-10 mb-4 bg-[#1C3C84] text-white ">
-                <h3 class="text-xl ml-2 my-2">
+            <div class="w-full mx-10 mb-4  ">
+                <h3 class="font-bold text-xl ml-2 my-2 bg-neutral-100">
                     Calendrier commissions 
                     <hr>
                 </h3>
-                <div class="my-10">
-                   
+                <div class="my-10 mx-20">
+                    @livewire('seance-commission-datatable')
                 </div>
 
             </div>

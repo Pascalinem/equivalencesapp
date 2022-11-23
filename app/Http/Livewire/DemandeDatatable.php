@@ -29,6 +29,12 @@ class DemandeDatatable extends LivewireDatatable
                 ->hideable()
                 ->filterable(),
 
+            Column::name('etude.type')
+                ->label('Etudes')
+                ->searchable()
+                ->hideable()
+                ->filterable(),
+
            
             Column::name('user.name')
                 ->label('Nom(s)')
@@ -41,6 +47,26 @@ class DemandeDatatable extends LivewireDatatable
             ->searchable()
             ->hideable()
             ->filterable(),
+            
+            Column::name('date_demande')
+            ->label('Date introduction demande')
+            ->searchable()
+            ->hideable()
+            ->filterable(),
+
+            Column::name('statut_demande')
+            ->label('Statut demande')
+            ->searchable()
+            ->hideable()
+            ->filterable(),
+
+            Column::name('commission_id')
+            ->label('Commission')
+            ->searchable()
+            ->hideable()
+            ->filterable(),
+
+
 
            
 
