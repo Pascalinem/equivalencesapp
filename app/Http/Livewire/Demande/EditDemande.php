@@ -14,6 +14,7 @@ class EditDemande extends Component
 
 use WithFileUploads;
 
+// champs commentés à intégrer
     public $showDemande;
     public $demande;
     public $demande_id;

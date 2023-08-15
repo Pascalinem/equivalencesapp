@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('demande_id');
             $table->foreignId('user_id');
-            $table->string('identity_card')->nulllable();
-            $table->string('copy_diploma')->nulllable();
-            $table->string('copy_transcripts_of_records')->nulllable();
-            $table->string('copy_dissertation')->nulllable();
-            $table->string('copy_study_program')->nulllable();
-            $table->string('summary_dissertation')->nulllable();
-            $table->string('copy_work_attestations')->nulllable();
-            $table->string('other_documents')->nulllable();
+            $table->string('identity_card')->nullable();
+            $table->string('copy_diploma')->nullable();
+            $table->string('copy_transcripts_of_records')->nullable();
+            $table->string('copy_dissertation')->nullable();
+            $table->string('copy_study_program')->nullable();
+            $table->string('summary_dissertation')->nullable();
+            $table->string('copy_work_attestations')->nullable();
+            $table->string('other_documents')->nullable();
             $table->timestamps();
         });
     }
