@@ -134,9 +134,9 @@
     <button type="submit" class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow">Sauvegarder mes informations sur mes études {{ $this->etudes }}</button>
 </form>
 @else
-<div class="mb-6"> Avez vous fait des études {{ $this->etudes }} ?
+<div class="mb-6"> Voulez-vous enregistrer les informations sur vos études {{ $this->etudes }} ?
     <button  class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="showForm()">Oui</button>
-    <button  class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="endEtude()">Non</button>
+    <button  class="bg-white hover:bg-blue-400 text-gray-800 font-semibold mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="retourAccueil()">Non</button>
 </div>
 @endif
 

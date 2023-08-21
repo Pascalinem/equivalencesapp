@@ -6,8 +6,9 @@ namespace Database\Seeders;
 
 use App\Models\Role;
 use App\Models\Commission;
-use App\Models\MembreCommission;
+use App\Models\PersonnesApi;
 use Illuminate\Database\Seeder;
+use App\Models\MembreCommission;
 use Database\Seeders\CommissionSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             RolesTableSeeder::class,
         ]);
         \App\Models\User::factory(30)->create();
+        PersonnesApi::factory(300)->create();
         $this->call([
             MembreCommissionSeeder::class,
             CommissionSeeder::class,

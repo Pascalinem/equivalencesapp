@@ -3,7 +3,7 @@
 
     class=" w-full mx-10 px-10">
     @if ($this->showDemande)
-        
+<h4>Etudes {{ $this->etude['type'] }}</h4>        
 
         
  

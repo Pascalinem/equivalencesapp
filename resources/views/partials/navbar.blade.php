@@ -22,6 +22,27 @@
  
 
 </ul>
+
+@php $locale = session()->get('locale'); @endphp
+
+<li class="nav-item dropdown">
+    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        @switch($locale)
+            @case('en')
+            EN
+            @break
+            
+            @default
+            BLA
+        @endswitch
+        <span class="caret"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="./lang/en"> EN</a>
+        <a class="dropdown-item" href="./lang/fr"> FR</a>
+    </div>
+</li>
 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
     @auth
        
@@ -39,4 +60,5 @@
         @endif
     @endauth
 </div>
+
 </div>

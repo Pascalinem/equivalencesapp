@@ -17,6 +17,11 @@ class DemandeController extends Controller
         ]);
     }
 
+    public function indexAPI(){
+        $demandes=Demande::all();
+        return response()->json($demandes);
+    }
+
     //
     public function show($id){
         $etude=Etude::where('demande_id','=',$id)->first();
@@ -26,6 +31,14 @@ class DemandeController extends Controller
             'etude'=>$etude,
         ]);
     }
+
+    public function showAPI($id){
+        $etude=Etude::where('demande_id','=',$id)->first();
+        $demande=Demande::find($id) ?? 'Aucune demande correspond à ce numéro';
+        return response()->json($demande);
+    }
+
+    
 
     
 

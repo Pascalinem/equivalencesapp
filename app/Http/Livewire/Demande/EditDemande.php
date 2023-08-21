@@ -31,6 +31,7 @@ use WithFileUploads;
     // 'summary_dissertation',
     // 'copy_work_attestations',
     // 'other_document'
+    public $etude;
     public $etude_id;
     public $gestionnaire_id;
 
@@ -53,10 +54,10 @@ use WithFileUploads;
  
      {
         if(isset($this->demande_id)){
-
             $this->demande = Demande::where('id', '=', $this->demande_id)->first();
             $this->type_demande = $this->demande->type_demande ;
             $this->showDemande = true;
+            $this->user_id = $this->demande->user_id;
         }
         //adapter multi role
        
@@ -90,9 +91,11 @@ use WithFileUploads;
     }
 
 
-public function showNouvelledemande($etude_id){
+public function showNouvelledemande($etude){
 
-    $this->etude_id = $etude_id;
+    $this->etude = $etude;
+    
+    $this->etude_id = $etude['etudes_id'];
     $this->showDemande=true;
 
 }

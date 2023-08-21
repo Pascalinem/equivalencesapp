@@ -32,6 +32,9 @@
     @livewire('dossier.informations-personnelles',['step' => $step, 'userId' => $userId], key($step) )
     @elseif($step>1 && $step<5 )
     @livewire('dossier.informations-etudes',['step' => $step, 'etudes' => $etudes[$step], 'user_id' => $userId], key($step) )
+    @elseif($step === 6 )
+    @livewire('dossier.choix-etudes',['step' => $step, 'userId' => $userId], key($step) )
+    
     @else
     @livewire('dossier.liste-etudes',['user_id' => $userId])
     @livewire('demande.edit-demande',['user_id' => $userId])

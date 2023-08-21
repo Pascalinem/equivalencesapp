@@ -113,6 +113,7 @@ class InformationsPersonnelles extends Component
 
             
         ]);
+        
         $this->user->update($validatedData);
         
        

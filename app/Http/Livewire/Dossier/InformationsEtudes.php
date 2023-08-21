@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Dossier;
 
-use App\Models\Country;
 use App\Models\Etude;
+use App\Models\Country;
 use Livewire\Component;
+use Illuminate\Support\Facades\Redirect;
 
 class InformationsEtudes extends Component
 {
@@ -72,6 +73,13 @@ class InformationsEtudes extends Component
 
         
         $this->emit('endEtude',$this->user_id);
+    }
+
+    public function retourAccueil(){
+        $this->emit('endEtude',$this->user_id);
+        return Redirect::route('home');
+        
+        
     }
 
     public function rules() 

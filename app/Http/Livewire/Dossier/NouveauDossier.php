@@ -8,7 +8,7 @@ use Livewire\Component;
 class NouveauDossier extends Component
 {
 public $userId;    
-public $step = 1;
+public $step;
 public $etudes = [
     '2' => "primaires",
     '3' => "secondaires",
@@ -16,8 +16,17 @@ public $etudes = [
 ];
 
 
-    protected $listeners = ['infoPersoOk'=> 'goStepTwo','infoEtudespsOk'=> 'goNextStep','endEtude' => 'endEtude' ];
+    protected $listeners = ['infoPersoOk'=> 'goStepTwo','infoEtudespsOk'=> 'goNextStep','endEtude' => 'endEtude', 'retourAccueil' => 'retourAccueil', 'nouvelleEtude' => 'choixEtude' , 'setStep' => 'mount'  ];
 
+    public function mount($step){
+        if($step){
+            $this->step = $step;
+        }
+
+        else{
+            $this->step = 1;
+        }
+    }
 
     public function goNextStep($userId){
        
@@ -38,6 +47,7 @@ public $etudes = [
         ;
     }
 
+
     public function endEtude($userId){
         $this->userId = $userId;
 
@@ -46,6 +56,13 @@ public $etudes = [
         
     }
 
+    public function choixEtude($userId){
+        $this->userId = $userId;
+
+        $this->step = 6
+        ;
+        
+    }
 
     public function render()
     {
