@@ -13,8 +13,12 @@ return [
     |
     */
 
-    'failed' => 'Données incorrectes',
-    'password' => 'Le mot de passe est incorrect.',
+    'welcome' => 'Bonjour',
+    'info-perso' => 'Mes informations personnelles',
+    'name-firstname' => 'Noms et prénoms:',
+    'name-diploma' => 'Nom sur le diplôme: ',
+    'email-phone' => 'Adresse mail et téléphone:',
+    'adresse' => 'Adresse :',
     'throttle' => 'Trop d\'essais. Ré-essayer dans quelques instants.',
 
 ];

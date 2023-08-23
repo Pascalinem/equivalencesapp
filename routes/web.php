@@ -52,7 +52,7 @@ Route::get('/liste_utilisateurs', function () {
 })->middleware('web','auth')->name('liste_utilisateurs');
 
 Route::get('/demandes/{demande_id}', [DemandeController::class, 'show'])->middleware('web','auth');
-Route::get('/api', [DemandeController::class, 'indexAPI'])->middleware('api','auth');
+Route::get('/api', [DemandeController::class, 'indexAPI'])->middleware('api');
 Route::get('/api/{demande_id}', [DemandeController::class, 'showAPI'])->middleware('api','auth');
 
 Route::get('/demandes', function () {

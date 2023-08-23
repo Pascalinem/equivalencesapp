@@ -5,21 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Etude;
 use App\Models\Demande;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use App\Http\Resources\DemandeResource;
+use App\Http\Resources\DemandeCollection;
 class DemandeController extends Controller
 {
 
+    /**
+     * @return \illuminate\Http\Response
+     */
     public function index(){
         $demandes=Demande::all();
         return view('components.index',[
-            'demandes'=>$demandes,
-            'resource'=>'demandes'
+          'demandes'=>$demandes,
+           'resource'=>'demandes'
         ]);
-    }
+     
+     }
 
     public function indexAPI(){
-        $demandes=Demande::all();
-        return response()->json($demandes);
+               return new DemandeCollection(Demande::paginate());
+      
     }
 
     //
@@ -35,9 +41,10 @@ class DemandeController extends Controller
     public function showAPI($id){
         $etude=Etude::where('demande_id','=',$id)->first();
         $demande=Demande::find($id) ?? 'Aucune demande correspond à ce numéro';
-        return response()->json($demande);
+        return new DemandeResource($demande);
+        
     }
-
+ 
     
 
     

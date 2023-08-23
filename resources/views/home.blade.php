@@ -4,23 +4,23 @@
 
     <div class="flex flex-wrap mt-10">
             <h2 class="block ml-4 mb-8 text-2xl text-gray-700">
-                <span class="  font-extrabold"> Bonjour   {{ auth()->user()->name }},</span>
+                <span class="  font-extrabold"> {{ __('messages.welcome') }}   {{ auth()->user()->name }},</span>
             </h2>
 
             @if (Auth::user()->role_id==5)
                 
                 <div class="w-full mx-10 mb-4 bg-white">
                     <h3 class="font-bold bg-neutral-100 text-xl">
-                        Mes informations personnelles
+                        {{ __('messages.info-perso') }}
                         <hr>
                     </h3>
                     <div class="w-full my-4 ">
                             <!--div info utilisateur-->  
                             <div class="grid grid-cols-3 gap-4">
-                                <div><span class="font-bold text-gray-600 ">Noms et prénoms:</span> {{ auth()->user()->name }} {{ auth()->user()->firstname }}</div>
-                                <div><span class="font-bold text-gray-600 ">Nom sur le diplôme: </span> {{ auth()->user()->name_diploma }}</div>
-                                <div><span class="font-bold text-gray-600 ">Adresse mail et téléphone: </span> {{ auth()->user()->email }}      {{ auth()->user()->telephone }}</div>
-                                <div><span class="font-bold text-gray-600 "> Adresse: </span> {{ auth()->user()->street }}   {{ auth()->user()->postal_code }} {{ auth()->user()->city }} {{ auth()->user()->country }}</div>
+                                <div><span class="font-bold text-gray-600 ">{{ __('messages.name-firstname') }} </span> {{ auth()->user()->name }} {{ auth()->user()->firstname }}</div>
+                                <div><span class="font-bold text-gray-600 ">{{ __('messages.name-diploma') }}</span> {{ auth()->user()->name_diploma }}</div>
+                                <div><span class="font-bold text-gray-600 ">{{ __('messages.email-phone') }}</span> {{ auth()->user()->email }}      {{ auth()->user()->telephone }}</div>
+                                <div><span class="font-bold text-gray-600 ">{{ __('messages.adresse') }}</span> {{ auth()->user()->street }}   {{ auth()->user()->postal_code }} {{ auth()->user()->city }} {{ auth()->user()->country }}</div>
                                 <div><span class="font-bold text-gray-600 "> Adresse courrier, si différente adresse résidence: </span> {{ auth()->user()->stree1 }}   {{ auth()->user()->postal_code1 }} {{ auth()->user()->city1 }} {{ auth()->user()->country1 }}</div>
                             </div>
 
