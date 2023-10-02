@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use App\Models\Demande;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\NumberColumn;
@@ -54,6 +55,12 @@ class DemandeDatatable extends LivewireDatatable
             ->hideable()
             ->filterable(),
 
+            Column::name('gestionnaire.name')
+            ->label('Gestionnaire')
+            ->searchable()
+            ->hideable()
+            ->filterable($this->gestionnaire),
+
             Column::name('statut_demande')
             ->label('Statut demande')
             ->searchable()
@@ -72,5 +79,10 @@ class DemandeDatatable extends LivewireDatatable
 
            
         ];
+    }
+
+    public function getGestionnaireProperty()
+    {
+        return User::where('role_id','=', '3')->pluck('name');
     }
 }
