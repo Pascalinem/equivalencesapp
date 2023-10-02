@@ -16,5 +16,10 @@ return [
     'failed' => 'Données incorrectes',
     'password' => 'Le mot de passe est incorrect.',
     'throttle' => 'Trop d\'essais. Ré-essayer dans quelques instants.',
+    'logout'=>'Déconnexion',
+    'register'=>'S\'inscrire',
+    'log-in'=>'Se connecter',
+    'se connecter'=>'se connecter',
+    'password'=>'mot de passe',
 
 ];

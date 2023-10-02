@@ -142,7 +142,14 @@ return [
              //'confirmPassword' => true,
             // 'window' => 0,
        //  ]),
+
     ],
+
+
+       'redirects'=>[
+        'logout'=>'login',
+       ],
+    
 
    
 

@@ -14,7 +14,7 @@ class EditDemande extends Component
 
 use WithFileUploads;
 
-// champs commentés à intégrer
+    public $user;
     public $showDemande;
     public $demande;
     public $demande_id;
@@ -35,26 +35,19 @@ use WithFileUploads;
     public $etude_id;
     public $gestionnaire_id;
 
-   
-
-
     protected $listeners = ['nouvelleDemande'=>'showNouvelledemande'];
-
-
-
 
     public $equivalences= [
 
         'NIV'=>'Equivalence de niveau ',
         'ACA'=>'Equivalence academique',
-
     ];
 
     public function mount()
  
      {
         if(isset($this->demande_id)){
-            $this->demande = Demande::where('id', '=', $this->demande_id)->first();
+            $this->demande = Demande::where('id', '=', $this->demande_id)->join('users','users.id','=','demandes.user_id');
             $this->type_demande = $this->demande->type_demande ;
             $this->showDemande = true;
             $this->user_id = $this->demande->user_id;
@@ -114,7 +107,7 @@ public function submit(){
         $validatedData['copy_diploma'] = $this->copy_diploma->store($this->user_id, 'public');
        // $demande = new Demande; 
        if(isset($this->demande_id)){
-
+        
        }
        else{
         $demande=Demande::create($validatedData);

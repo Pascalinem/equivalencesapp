@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable();
             $table->string('gestionnaire_id')->nullable();
             $table->foreignId('etude_id')->nullable();
+            $table->longText('commentaire')->nullable();
             $table->timestamps();
         });
     }

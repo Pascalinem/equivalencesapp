@@ -16,7 +16,7 @@ return [
     'reset' => 'Mot de passe réinitialisé!',
     'sent' => 'Vous avez reçu un lien par email pour redéfinir votre mot de passe!',
     'throttled' => 'Patientez un instant avant de ré-essayer.',
-    'token' => 'This password reset token is invalid.',
-    'user' => "Il n'y a aucun utilisateur evec cette adresse mail.",
+    'token' => 'Ce token de réinitialisation est invalide.',
+    'user' => "Aucun utilisateur ne correspond à cette adresse mail.",
 
 ];

@@ -25,11 +25,13 @@
 <div class="form-group">
     <label for="copy_diploma">Télécharger une copie de votre diplôme  </label>
     <input type="file" class="form-control-file border" name="copy_diploma" wire:model="copy_diploma">
+    @error('copy_diploma') <span class="text-danger">{{ $message }}</span> @enderror
 </div>
     @if($type_demande === 'ACA')
     <div class="form-group">
         <label for="certified_copy_diploma">Télécharger une copie certifiée de votre diplôme </label>
         <input type="file" class="form-control-file border" name="certified_copy_diploma" wire:model="certified_copy_diploma">
+        @error('certified_copy_diploma') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
     @endif
 

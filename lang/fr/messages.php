@@ -20,5 +20,10 @@ return [
     'email-phone' => 'Adresse mail et téléphone:',
     'adresse' => 'Adresse :',
     'throttle' => 'Trop d\'essais. Ré-essayer dans quelques instants.',
+    'calendrier-commissions'=>'Calendrier commissions',
+    'utilisateurs'=>'Utilisateurs',
+    'demandes'=>"Demandes",
+    'accueil'=>'Accueil',
+    'user-list'=> 'Utilisateurs',
 
 ];

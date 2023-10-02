@@ -27,6 +27,7 @@ class Demande extends Model
         'user_id',
         'etude_id',
         'gestionnaire_id',
+        'commentaire',
     ];
 
    /**

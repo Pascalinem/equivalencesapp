@@ -65,7 +65,7 @@
             @endif
             <div class="w-full mx-10 mb-4  ">
                 <h3 class="font-bold text-xl ml-2 my-2 bg-neutral-100">
-                    Calendrier commissions 
+                    {{ __('messages.calendrier-commissions')}} 
                     <hr>
                 </h3>
                 <div class="my-10 mx-20">

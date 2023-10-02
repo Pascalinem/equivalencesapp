@@ -31,6 +31,7 @@ class ListeEtudes extends Component
                                         'etudes.start_year',
                                         'etudes.end_year',
                                         'etudes.demande_id',
+                                        'demandes.statut_demande',
                                         'users.name', 
                                         'users.email')
                         ->where('etudes.user_id','=',$this->user_id)

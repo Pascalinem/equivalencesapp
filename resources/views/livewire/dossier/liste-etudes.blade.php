@@ -32,7 +32,11 @@
                         <td class="px-4 py-2 text-blue-600"> <a href="mailto:{{ $item->email}}?subject= Demande n°{{ $item->demande_id }}" target="_blank">{{  $item->email?$item->email:"N/A"}}</td>
                         <td> 
                             @if($item->demande_id)
-                        <span class=" text-sm mb-4 mt-8 p-2 bg-green-200"> En cours</span>
+                                @if($item->statut_demande == "Decision")
+                                    <span class=" text-sm mb-4 mt-8 p-2 bg-green-200"><a href="" > Test</a></span>
+                                @else
+                                <span class=" text-sm mb-4 mt-8 p-2 bg-green-200"> En cours</span>
+                                @endif
                             @else
                             <button  href='#liste-etudes' class="bg-white hover:bg-green-400 text-gray-800 font-semibold mb-4 mt-8 py-4 px-4 border border-gray-400 rounded shadow" wire:click="creerDemande({{ $item}})">Introduire une demande</button>
                             @endif 

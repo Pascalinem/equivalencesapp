@@ -7,10 +7,10 @@
         @if (Auth::user()->role_id==4)
             
         @else
-            <li class="inline mx-4"><a href="{{ route('home') }}">Accueil</a></li>
+            <li class="inline mx-4"><a href="{{ route('home') }}">{{__('messages.accueil') }}</a></li>
             @if(Auth::user()->role_id<4)
-              <li class="inline mx-4"><a href="{{ route('liste_utilisateurs') }}">Utilisateurs</a></li>
-              <li class="inline mx-4"><a href="{{ route('liste_demandes') }}">Demandes</a></li>
+              <li class="inline mx-4"><a href="{{ route('liste_utilisateurs') }}">{{__('messages.utilisateurs') }}</a></li>
+              <li class="inline mx-4"><a href="{{ route('liste_demandes') }}">{{__('messages.demandes') }}</a></li>
             @endif
             <li class="inline mx-4"><a href="#">Notifications</a></li>
             
@@ -45,12 +45,12 @@
         From: "transform opacity-100 scale-100"
         To: "transform opacity-0 scale-95"
     -->
-    <div class="absolute left-0 z-10 mt-2 w-12 origin-top-left rounded-md bg-teal-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-      <div class="py-1" role="none">
+    
+    <div class=" right-0 z-10 mt-2 origin-top-left rounded-md bg-teal-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+      <div  role="none">
         <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
         <a href="./lang/fr" class="text-white block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">FR</a>
-        <a href="./lang/en" class="text-white block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">EN</a>
-        
+        <a href="./lang/en" class="text-white block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">EN</a> 
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
         <div class="nav-link text-sm hover:underline" id="nav-bar-logoutbutton">                       
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button class="btn btn-secondary btn-sm" type="submit">Logout</button>
+                <button class="btn btn-secondary btn-sm" type="submit">{{ __('auth.logout') }}</button>
             </form>
         </div>
     @else
