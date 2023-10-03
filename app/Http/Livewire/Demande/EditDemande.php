@@ -5,9 +5,16 @@ namespace App\Http\Livewire\Demande;
 use App\Models\User;
 use App\Models\Etude;
 use App\Models\Demande;
+use App\Notifications\DossierAvis;
+use App\Notifications\DossierIncomplet;
+use App\Notifications\DossierComplet;
+use App\Notifications\DossierPaiement;
+use App\Notifications\DossierDecision;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\DocumentDemande;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EditDemande extends Component
 {
@@ -99,15 +106,21 @@ public function submit(){
 
 //dd($validatedData);
 
-
-
-
       
 
         $validatedData['copy_diploma'] = $this->copy_diploma->store($this->user_id, 'public');
        // $demande = new Demande; 
        if(isset($this->demande_id)){
-        
+            if($this->statut_demande ==='Avis'){
+                User::find(Auth::user()->id)->notify(new DossierAvis($this->statut_demande));
+            }
+            elseif($this->statut_demande ==='Decision'){
+
+            }
+            else{
+
+            }
+           
        }
        else{
         $demande=Demande::create($validatedData);
@@ -121,7 +134,15 @@ public function submit(){
         $this->emit('refreshComponent');
         $this->showDemande = false;
        }
+       
+
+       return redirect()->back()->with('status','There\'s a new review for your file.');
 }
+public function markAsRead(){
+    Auth::user()->unreadNotifications->markAsRead();
+    return redirect()->back();
+}
+
 
 
     public function render()

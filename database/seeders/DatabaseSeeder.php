@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Role;
+use App\Models\Etude;
+use App\Models\Demande;
 use App\Models\Commission;
 use App\Models\PersonnesApi;
 use Illuminate\Database\Seeder;
@@ -25,13 +27,15 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RolesTableSeeder::class,
         ]);
-        \App\Models\User::factory(30)->create();
+        \App\Models\User::factory(50)->create();
+        \App\Models\Etude::factory(120)->create();
+        //Demande::factory(30)->create();
         PersonnesApi::factory(300)->create();
         $this->call([
             MembreCommissionSeeder::class,
             CommissionSeeder::class,
             CountrySeeder::class,
-            EtudeSeeder::class,
+            
             SeanceCommissionSeeder::class,
         ]);
 

@@ -10,6 +10,9 @@ use App\Models\Commission;
 use Illuminate\Http\Response;
 use Livewire\WithFileUploads;
 use App\Models\DocumentDemande;
+use App\Notifications\DossierAvis;
+use App\Notifications\DossierStatut;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -48,9 +51,9 @@ class EditDemandeBackOffice extends Component
     public $statuts= [
 
         '1'=>'En cours ',
-        '2'=>'En Attente d\'avis commission ',
+        '2'=>'En Attente avis commission ',
         '3'=>'Avis ',
-        '4'=>'Décision',
+        '4'=>'Decision',
 
     ];
     
@@ -126,6 +129,8 @@ class EditDemandeBackOffice extends Component
         // $demande = new Demande; 
         
          $this->demande->update($validatedData);
+         User::find($this->demande->user_id)->notify(new DossierStatut($this->demande));
+         return redirect()->route('liste_demandes');
         
          //$test = $this->copy_diploma->storeAs('/public/'.$this->user_id, 'copy_diploma.jpg');
          

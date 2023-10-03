@@ -41,4 +41,6 @@ class SeanceCommissionDatatable extends LivewireDatatable
                 ->filterable(),
         ];
     }
+
+  
 }

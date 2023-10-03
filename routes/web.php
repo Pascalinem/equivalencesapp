@@ -5,6 +5,7 @@ use App\Http\Responses\LogoutResponse;
 use App\Http\Livewire\UsersTable;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\PDFController;
 
 
 /*
@@ -60,6 +61,10 @@ Route::get('/demandes', function () {
 })->middleware('web','auth')->name('liste_demandes');
 
 Route::get('lang/{locale}', [App\Http\Controllers\LocalizationController::class, 'index']);
+Route::get('/notifications', [App\Http\Controllers\DemandeController::class,'notifications'])->name('demande-avis');
+Route::get('/mark-as-read', [App\Http\Controllers\DemandeController::class,'markAsRead'])->name('mark-as-read');
+Route::get('/demandes/{id}/pdf', [PDFController::class, 'generatePDF'])->middleware('api','auth');
+
 
 
 //Route::get('demandes/{id}',[DemandeController::class,'show'])->name('dossier');

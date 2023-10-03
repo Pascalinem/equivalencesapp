@@ -34,7 +34,7 @@
                 <div class="w-full mx-10 mb-4 bg-white">
                     
                     <h3 class=" font-bold text-xl bg-neutral-100">
-                            Etudes
+                            {{__('pages.study')}}
                             <hr>
                     </h3>
                     <div>                
@@ -54,7 +54,7 @@
 
                 <div class="w-full mx-10 mb-4 ">
                     <h3 class="font-bold text-xl">
-                        Liste des utilisateurs
+                        {{__('messages.user-list') }}
                         <hr>
                     </h3>
                     <div class="my-10">

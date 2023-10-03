@@ -8,6 +8,7 @@ return [
 'name'=>'name',
 'firstname'=>'firstname',
 'export'=>'Export',
+'study'=>'Studies'
 
 
 

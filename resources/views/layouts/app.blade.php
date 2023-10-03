@@ -7,6 +7,7 @@
         <title>Equivalence des diplômes</title>
         @livewireStyles
         @vite('resources/js/app.js')
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" />
     </head>
 
     <body class="h-full">

@@ -9,6 +9,7 @@ return [
 'name'=>'nom',
 'firstname'=>'prénom',
 'export'=>'Exporter',
+'study'=>'Etudes'
 
 
 

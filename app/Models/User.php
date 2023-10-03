@@ -88,4 +88,6 @@ class User extends Authenticatable
         return $this->hasMany(Etude::class,'user_id','id');
     }
 
+    
+
 }

@@ -7,4 +7,5 @@
         <option value=3 selected>Secondaire</option>
         <option value=4 selected>Supérieur</option>
 </select>
+
 </div>

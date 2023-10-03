@@ -51,6 +51,7 @@ class InformationsEtudes extends Component
 
     {
         $this->countriesAll = Country::all();
+        $this->user_id = auth()->user()->id;
         
     }
 

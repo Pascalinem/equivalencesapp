@@ -63,5 +63,30 @@ class Demande extends Model
         return $this->belongsTo(User::class,'gestionnaire_id','id');
     }
 
+    public function statut_demande_name(){
+        $statut="";
+
+        switch ($this->statut_demande){
+
+            case 1:
+                $statut = "En cours";
+            break;
+            case 2:
+                $statut = "En Attente avis commission";
+            break;
+            case 3:
+                $statut = "Avis";
+            break;
+            case 4:
+                $statut = "Décision";
+            break;
+            default :
+                $statut = "En cours";
+       
+        }
+
+        return $statut;
+    }
+
 
 }

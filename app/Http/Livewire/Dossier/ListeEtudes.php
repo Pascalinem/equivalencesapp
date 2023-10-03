@@ -50,7 +50,7 @@ class ListeEtudes extends Component
 
     public function ajouterEtudes()
     {
-        return Redirect::route('choix-etudes');
+        return Redirect::route('choix-etudes',['user_id' => $this->user_id]);
     }
   
     

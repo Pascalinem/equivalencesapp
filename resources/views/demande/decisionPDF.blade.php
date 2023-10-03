@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 
 <div class="w-full my-4">
     
@@ -34,5 +31,3 @@
         @livewire('demande.edit-demande-back-office',['demande_id' => $demande->id])
     
 </div>
-@endsection
-

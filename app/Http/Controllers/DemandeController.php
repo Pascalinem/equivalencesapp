@@ -46,7 +46,11 @@ class DemandeController extends Controller
     }
  
     
+    public function notifications(){
 
+        
+        return view('notification');
+    }
     
 
 

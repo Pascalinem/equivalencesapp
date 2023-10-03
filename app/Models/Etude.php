@@ -31,4 +31,31 @@ class Etude extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    
+    public function statut_demande_name(){
+        $statut="";
+
+        switch ($this->demande->statut_demande){
+
+            case 1:
+                $statut = "En cours";
+            break;
+            case 2:
+                $statut = "En Attente avis commission";
+            break;
+            case 3:
+                $statut = "Avis";
+            break;
+            case 4:
+                $statut = "Décision";
+            break;
+            default :
+                $statut = "En cours";
+       
+        }
+
+        return $statut;
+    }
+
 }
