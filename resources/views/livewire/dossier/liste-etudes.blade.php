@@ -33,7 +33,7 @@
                         <td> 
                             @if($item->demande_id)
                                 @if($item->statut_demande_name() == "Décision")
-                                    <span class=" text-sm mb-4 mt-8 p-2 bg-green-200"><a href="/demandes/{{ $item->demande_id }}/pdf" > Test</a></span>
+                                    <span class=" text-sm mb-4 mt-8 p-2 bg-green-200"><a href="/demandes/{{ $item->demande_id }}/pdf" > Visualiser {{$item->statut_demande_name()}}</a></span>
                                 @else
                                 <span class=" text-sm mb-4 mt-8 p-2 bg-green-200"> {{$item->statut_demande_name()}}</span>
                                 @endif

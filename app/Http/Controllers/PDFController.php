@@ -19,7 +19,7 @@ class PDFController extends Controller
         $demande = Demande::where('id','=',$demande_id)->first();
         $etude = Etude::where('id','=',$demande->etude_id)->first();
         $data = [
-            'title' => 'Welcome to ItSolutionStuff.com',
+            'title' => 'Services des équivalences',
             'date' => date('m/d/Y'),
             'demande' => $demande,
             'etude' => $etude
@@ -27,6 +27,6 @@ class PDFController extends Controller
           
         $pdf = PDF::loadView('/demande/decisionPDF', $data);
     
-        return $pdf->download('itsolutionstuff.pdf');
+        return $pdf->download('DecisionEquivalence.pdf');
     }
 }
